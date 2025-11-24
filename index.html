@@ -34,11 +34,21 @@
     a {
       color: var(--accent);
       text-decoration: none;
-      transition: color 0.2s;
+      transition: all 0.3s ease;
     }
 
     a:hover {
       color: #1d4ed8;
+    }
+
+    .btn-primary {
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
     }
 
     /* Hero Section */
@@ -161,10 +171,15 @@
     /* Sections */
     section {
       padding: 80px 20px;
+      position: relative;
     }
 
     section:nth-child(even) {
-      background-color: var(--bg-alt);
+      background: linear-gradient(to bottom, var(--bg) 0%, var(--bg-alt) 10%, var(--bg-alt) 90%, var(--bg) 100%);
+    }
+
+    section:nth-child(odd):not(:first-child) {
+      background: linear-gradient(to bottom, var(--bg-alt) 0%, var(--bg) 10%, var(--bg) 90%, var(--bg-alt) 100%);
     }
 
     .container {
@@ -184,8 +199,10 @@
     }
 
     .section-subtitle {
-      color: var(--text-light);
+      color: #9ca3af;
       font-size: 1.1rem;
+      font-weight: 400;
+      line-height: 1.6;
     }
 
     /* Overview */
@@ -199,6 +216,8 @@
     .overview-text p {
       margin-bottom: 20px;
       color: var(--secondary);
+      line-height: 1.8;
+      font-size: 1rem;
     }
 
     .stats-grid {
@@ -209,17 +228,37 @@
 
     .stat-card {
       background: white;
-      padding: 20px;
-      border-radius: 8px;
+      padding: 25px 20px;
+      border-radius: 12px;
       border: 1px solid var(--border);
       text-align: center;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      border-color: var(--accent);
+    }
+
+    .stat-icon {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 10px;
+      opacity: 0.8;
     }
 
     .stat-value {
-      font-size: 1.5rem;
+      font-size: 2rem;
       font-weight: 700;
       color: var(--primary);
       display: block;
+      transition: color 0.3s ease;
+    }
+
+    .stat-card:hover .stat-value {
+      color: var(--accent);
     }
 
     .stat-label {
@@ -244,11 +283,13 @@
       border-radius: 12px;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
       border: 1px solid var(--border);
-      transition: transform 0.2s;
+      transition: all 0.3s ease;
     }
 
     .feature-item:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+      border-color: var(--accent);
     }
 
     .feature-icon {
@@ -314,6 +355,35 @@
       height: 10px;
       background: #2563eb;
       border-radius: 50%;
+    }
+
+    /* Score Cards */
+    .score-card {
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .score-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.15);
+    }
+
+    .score-card.walk-score:hover {
+      border-color: #10b981;
+    }
+
+    .score-card.transit-score:hover {
+      border-color: var(--accent);
+    }
+
+    .score-card.bike-score:hover {
+      border-color: #f59e0b;
+    }
+
+    .score-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: block;
     }
 
     /* Contact */
@@ -396,7 +466,19 @@
         box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
         z-index: 1000;
       }
-      .nav-link { padding: 10px; font-size: 0.8rem; }
+      .nav-link { 
+        padding: 15px 12px; 
+        font-size: 0.75rem;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 3px solid transparent;
+      }
+      .nav-link.active {
+        border-bottom-color: var(--accent);
+        color: var(--accent);
+      }
       .navbar { top: auto; bottom: 0; }
     }
   </style>
@@ -447,18 +529,22 @@
           
           <div class="stats-grid">
             <div class="stat-card">
+              <span class="stat-icon">🏠</span>
               <span class="stat-value">68</span>
               <span class="stat-label">Units</span>
             </div>
             <div class="stat-card">
-              <span class="stat-value">7</span>
+              <span class="stat-icon">🏢</span>
+              <span class="stat-value">6</span>
               <span class="stat-label">Stories</span>
             </div>
             <div class="stat-card">
+              <span class="stat-icon">📅</span>
               <span class="stat-value">1963</span>
               <span class="stat-label">Year Built</span>
             </div>
             <div class="stat-card">
+              <span class="stat-icon">⭐</span>
               <span class="stat-value">D4</span>
               <span class="stat-label">Building Class</span>
             </div>
@@ -559,21 +645,24 @@
         <div style="margin-bottom: 40px;">
           <h3 style="text-align: center; margin-bottom: 20px; color: var(--primary);">Walk, Transit & Bike Scores</h3>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
-            <div style="background: white; padding: 25px; border-radius: 12px; border: 1px solid var(--border);">
+            <div class="score-card walk-score" style="background: white; padding: 25px; border-radius: 12px; border: 2px solid var(--border);">
+              <div class="score-icon">🚶</div>
               <div style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 8px; font-weight: 500;">Walk Score®</div>
-              <div style="font-size: 3rem; font-weight: 700; color: #2563eb; line-height: 1;">98</div>
+              <div style="font-size: 3rem; font-weight: 700; color: #10b981; line-height: 1;">98</div>
               <div style="font-size: 0.75rem; color: var(--text-light); margin-top: 2px;">/ 100</div>
               <div style="font-size: 0.9rem; color: var(--primary); font-weight: 600; margin-top: 10px;">Walker's Paradise</div>
             </div>
-            <div style="background: white; padding: 25px; border-radius: 12px; border: 1px solid var(--border);">
+            <div class="score-card transit-score" style="background: white; padding: 25px; border-radius: 12px; border: 2px solid var(--border);">
+              <div class="score-icon">🚇</div>
               <div style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 8px; font-weight: 500;">Transit Score®</div>
               <div style="font-size: 3rem; font-weight: 700; color: #2563eb; line-height: 1;">100</div>
               <div style="font-size: 0.75rem; color: var(--text-light); margin-top: 2px;">/ 100</div>
               <div style="font-size: 0.9rem; color: var(--primary); font-weight: 600; margin-top: 10px;">Rider's Paradise</div>
             </div>
-            <div style="background: white; padding: 25px; border-radius: 12px; border: 1px solid var(--border);">
+            <div class="score-card bike-score" style="background: white; padding: 25px; border-radius: 12px; border: 2px solid var(--border);">
+              <div class="score-icon">🚴</div>
               <div style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 8px; font-weight: 500;">Bike Score®</div>
-              <div style="font-size: 3rem; font-weight: 700; color: #2563eb; line-height: 1;">95</div>
+              <div style="font-size: 3rem; font-weight: 700; color: #f59e0b; line-height: 1;">95</div>
               <div style="font-size: 0.75rem; color: var(--text-light); margin-top: 2px;">/ 100</div>
               <div style="font-size: 0.9rem; color: var(--primary); font-weight: 600; margin-top: 10px;">Biker's Paradise</div>
             </div>
@@ -602,8 +691,8 @@
           </iframe>
         </div>
         <div style="text-align: center; margin-top: 20px;">
-           <a href="https://www.google.com/maps/search/?api=1&query=408+West+34th+Street+New+York+NY" target="_blank" style="display: inline-block; padding: 10px 20px; background: var(--primary); color: white; border-radius: 6px; font-weight: 500; text-decoration: none;">
-             Open in Google Maps
+           <a href="https://www.google.com/maps/search/?api=1&query=408+West+34th+Street+New+York+NY" target="_blank" class="btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--primary); color: white; border-radius: 8px; font-weight: 500; text-decoration: none;">
+             🗺️ Open in Google Maps
            </a>
         </div>
       </div>
