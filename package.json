@@ -1,0 +1,15 @@
+{
+  "name": "co-op-board-website",
+  "version": "1.0.0",
+  "description": "Hosting the html for co-op board website",
+  "main": "index.js",
+  "scripts": {
+    "build": "mkdir -p dist && cp index.html dist/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "wrangler": "^4.50.0"
+  }
+}
