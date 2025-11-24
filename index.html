@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Madison Gardens – 408 West 34th Street Co-op</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Madison Gardens is a post-war cooperative at 408 West 34th Street in the Chelsea / Hudson Yards neighborhood of Manhattan, NY.">
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --border: #e2e6f0;
+      --accent: #214cff;
+      --accent-soft: #e4ebff;
+      --text: #111827;
+      --muted: #6b7280;
+      --pill-bg: #eef2ff;
+      --pill-text: #3730a3;
+      --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.06);
+      --radius-card: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: radial-gradient(circle at top, #eef2ff 0, #f5f7fb 40%, #f3f4f6 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 28px auto 40px;
+      padding: 0 18px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f9fafb;
+      border-radius: 18px;
+      padding: 20px 22px 18px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.55);
+      position: sticky;
+      top: 12px;
+      z-index: 10;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .brand-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: 0.05em;
+    }
+
+    .addr {
+      margin-top: 6px;
+      font-size: 14px;
+      color: #e5e7eb;
+    }
+
+    .meta-line {
+      margin-top: 4px;
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    .badge-contact {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 12px;
+      padding: 10px 12px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      min-width: 220px;
+    }
+
+    .badge-contact-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    .badge-contact a {
+      color: #e5e7eb;
+      font-size: 13px;
+      word-break: break-all;
+    }
+
+    nav {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .nav-link {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.75);
+      color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      cursor: pointer;
+    }
+
+    .nav-link span {
+      opacity: 0.85;
+    }
+
+    .nav-link:hover {
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    main {
+      margin-top: 18px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 1.4fr);
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-card);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    h2 {
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+
+    h3 {
+      margin: 14px 0 4px;
+      font-size: 15px;
+    }
+
+    p {
+      margin: 6px 0;
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      background: var(--pill-bg);
+      color: var(--pill-text);
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid #e0e7ff;
+      white-space: nowrap;
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .fact {
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+    }
+
+    .fact-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+      margin-bottom: 2px;
+    }
+
+    .fact-value {
+      color: #111827;
+    }
+
+    .two-col-stack {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .ext-links ul {
+      padding-left: 18px;
+      margin: 6px 0 0;
+    }
+
+    .ext-links li {
+      margin: 4px 0;
+      font-size: 13px;
+    }
+
+    .alert-card {
+      background: #0f172a;
+      color: #e5e7eb;
+      border-radius: var(--radius-card);
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .alert-card h2 {
+      font-size: 16px;
+      margin-bottom: 4px;
+      color: #f9fafb;
+    }
+
+    .alert-card h3 {
+      font-size: 13px;
+      margin-top: 10px;
+      margin-bottom: 4px;
+      color: #e5e7eb;
+    }
+
+    .alert-card p {
+      color: #cbd5f5;
+      font-size: 13px;
+      margin: 4px 0;
+    }
+
+    .alert-card ul {
+      padding-left: 18px;
+      margin: 4px 0 6px;
+      font-size: 13px;
+    }
+
+    .alert-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(37, 99, 235, 0.2);
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 11px;
+      color: #bfdbfe;
+      margin-bottom: 6px;
+      border: 1px solid rgba(96, 165, 250, 0.5);
+    }
+
+    .alert-tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .small-note {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 6px;
+    }
+
+    .board-card h3 {
+      margin: 0 0 4px;
+    }
+
+    .board-list {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 6px 0;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .tab {
+      font-size: 12px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #f9fafb;
+      color: var(--muted);
+    }
+
+    .tab--primary {
+      border-color: var(--accent-soft);
+      background: var(--accent-soft);
+      color: #1e3a8a;
+    }
+
+    footer {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 2px 0;
+      border-top: 1px solid rgba(209, 213, 219, 0.6);
+    }
+
+    .footer-right {
+      font-size: 11px;
+    }
+
+    @media (max-width: 860px) {
+      header {
+        position: static;
+      }
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .alert-card {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 520px) {
+      header {
+        padding: 16px 14px 12px;
+      }
+      h1 {
+        font-size: 20px;
+      }
+      .addr {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="header-top">
+        <div class="brand">
+          <div class="brand-label">Cooperative Residence</div>
+          <h1>MADISON GARDENS</h1>
+          <div class="addr">408 West 34th Street · Chelsea / Hudson Yards · Manhattan, NY 10001</div>
+          <div class="meta-line">Post-war Co-op · Managed by <a href="https://www.eisensteinrealty.com/" target="_blank" rel="noopener noreferrer">Eisenstein Realty</a></div>
+        </div>
+        <div class="badge-contact">
+          <div class="badge-contact-title">Co-op Board Contact</div>
+          <a href="mailto:madisongardensco-opboard@gmail.com">madisongardensco-opboard@gmail.com</a>
+        </div>
+      </div>
+      <nav aria-label="Site sections">
+        <span class="nav-link"><span>Overview</span></span>
+        <span class="nav-link"><span>Building Details</span></span>
+        <span class="nav-link"><span>Resident Alerts</span></span>
+        <span class="nav-link"><span>Board & Management</span></span>
+      </nav>
+    </header>
+
+    <main>
+      <div class="layout">
+        <!-- Left column -->
+        <div>
+          <section class="card" id="overview">
+            <h2>The Details</h2>
+            <p><strong>About 408 West 34th Street</strong></p>
+            <p>
+              408 West 34th St, also known as Madison Gardens, is a 6 story cooperative that was built in 1963. It was converted into
+              cooperative in 1989. The building features an elevator, laundry, storage units, live-in super, and an intercom system.
+              There is a surface parking lot behind the coop which currently has a wait-list. The building is pet friendly and has
+              low maintenance. Subletting is permitted, however, there is a monthly fee which is determined based off the number of
+              years a shareholder has owned the unit.
+            </p>
+
+            <h3>Key Features</h3>
+            <div class="pill-row">
+              <span class="pill">Doorman</span>
+              <span class="pill">Guarantors allowed</span>
+              <span class="pill">Elevators</span>
+              <span class="pill">Live-in Super</span>
+              <span class="pill">Renovated Lobby &amp; Hallways</span>
+              <span class="pill">Garage On-Site</span>
+              <span class="pill">Storage</span>
+              <span class="pill">Bike Room</span>
+              <span class="pill">Central Laundry Room</span>
+            </div>
+
+            <div class="two-col-stack">
+              <div>
+                <h3>Building Facts</h3>
+                <div class="facts-grid">
+                  <div class="fact">
+                    <div class="fact-label">Units</div>
+                    <div class="fact-value">68 units</div>
+                  </div>
+                  <div class="fact">
+                    <div class="fact-label">Stories</div>
+                    <div class="fact-value">7 stories</div>
+                  </div>
+                  <div class="fact">
+                    <div class="fact-label">Built</div>
+                    <div class="fact-value">1960 built (1963)</div>
+                  </div>
+                  <div class="fact">
+                    <div class="fact-label">Status</div>
+                    <div class="fact-value">Development Completed</div>
+                  </div>
+                  <div class="fact">
+                    <div class="fact-label">Community District</div>
+                    <div class="fact-value">104</div>
+                  </div>
+                  <div class="fact">
+                    <div class="fact-label">City Council District</div>
+                    <div class="fact-value">3</div>
+                  </div>
+                  <div class="fact">
+                    <div class="fact-label">Police Precinct</div>
+                    <div class="fact-value">10</div>
+                  </div>
+                  <div class="fact">
+                    <div class="fact-label">Building Class</div>
+                    <div class="fact-value">D4</div>
+                  </div>
+                </div>
+              </div>
+              <div class="ext-links">
+                <h3>External Listings</h3>
+                <p>For reference only (not controlled by the Co-op Board):</p>
+                <ul>
+                  <li><a href="https://streeteasy.com/building/408-west-34-street-new_york" target="_blank" rel="noopener noreferrer">StreetEasy – 408 West 34th St</a></li>
+                  <li><a href="https://www.corcoran.com/building/chelsea-hudson-yards/5016" target="_blank" rel="noopener noreferrer">Corcoran – Chelsea / Hudson Yards</a></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="card" id="board">
+            <div class="tabs" aria-hidden="true">
+              <span class="tab tab--primary">Board &amp; Management</span>
+              <span class="tab">Shareholder Info</span>
+            </div>
+            <div class="board-card">
+              <h2>Co-op Board (2026)</h2>
+              <p class="board-list">
+                Board member names will be listed here.
+              </p>
+              <p><strong>Contact:</strong> <a href="mailto:madisongardensco-opboard@gmail.com">madisongardensco-opboard@gmail.com</a></p>
+              <h3>Management</h3>
+              <p>
+                Property management is provided by
+                <a href="https://www.eisensteinrealty.com/" target="_blank" rel="noopener noreferrer">Eisenstein Realty</a>.
+                Operational details, including maintenance, repairs, and day-to-day building matters, are coordinated between the Co-op Board
+                and management.
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <!-- Right column -->
+        <aside>
+          <section class="alert-card" id="alerts">
+            <div class="alert-tag">
+              <span class="alert-tag-dot"></span>
+              <span>Resident alert program</span>
+            </div>
+            <h2>Resident Alerts &amp; Consent</h2>
+            <p>
+              Madison Gardens offers optional SMS, email, and automated voice alerts for building-related communications
+              (such as maintenance work, service interruptions, safety notices, and other time-sensitive updates).
+            </p>
+
+            <h3>How to enroll</h3>
+            <p>Residents may opt in by signing the <strong>Resident Alerts Consent Form</strong> located in the building lobby. The form asks for your:</p>
+            <ul>
+              <li>Name</li>
+              <li>Apartment number</li>
+              <li>Mobile phone number</li>
+              <li>Email address</li>
+            </ul>
+            <p>By signing the form, you consent to receive:</p>
+            <ul>
+              <li>Text messages (SMS)</li>
+              <li>Automated voice calls</li>
+              <li>Email notifications</li>
+            </ul>
+            <p>
+              from the Madison Gardens Co-op Board and Eisenstein Realty regarding building-related communications.
+            </p>
+
+            <h3>Message frequency &amp; opt-out</h3>
+            <p>
+              <strong>Message frequency:</strong> generally up to 2 alerts per month, though frequency may temporarily increase
+              during urgent building situations.
+            </p>
+            <p>
+              <strong>Opt-out:</strong> you may opt out at any time by replying <strong>STOP</strong> to a text message, or by emailing the board at
+              <a href="mailto:madisongardensco-opboard@gmail.com">madisongardensco-opboard@gmail.com</a>.
+            </p>
+
+            <h3>Proof of consent</h3>
+            <p>
+              The Co-op Board and managing agent maintain copies of signed consent forms, which include the date of signing,
+              your contact information, and your signature. These records serve as proof of opt-in for our messaging provider
+              and the wireless carriers.
+            </p>
+
+            <p class="small-note">
+              Your contact details are used only for building-related communications and are not sold or shared for marketing purposes.
+            </p>
+          </section>
+
+          <section class="card" style="margin-top: 14px;">
+            <h2>Quick Facts</h2>
+            <p>Post-war cooperative in the Chelsea / Hudson Yards neighborhood of Manhattan.</p>
+            <ul style="padding-left: 18px; margin: 8px 0 0; font-size: 13px; color: var(--muted);">
+              <li>Elevator building with live-in superintendent</li>
+              <li>Pet-friendly, with subletting permitted (with fee)</li>
+              <li>Surface parking lot behind the co-op (wait-list)</li>
+              <li>Central laundry room, storage, and bike room</li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <footer>
+      <div>© Madison Gardens Co-op Board</div>
+      <div class="footer-right">Last updated: 2026</div>
+    </footer>
+  </div>
+</body>
+</html>
