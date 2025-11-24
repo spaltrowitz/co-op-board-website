@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "mkdir -p dist && cp index.html dist/",
+    "postinstall": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
