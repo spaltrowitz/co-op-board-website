@@ -5,6 +5,9 @@
   <title>Madison Gardens – 408 West 34th Street Co-op</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Madison Gardens is a post-war cooperative at 408 West 34th Street in the Chelsea / Hudson Yards neighborhood of Manhattan, NY.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #111827;
@@ -83,13 +86,14 @@
     }
 
     .hero h1 {
+      font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
       font-size: 4.5rem;
       margin: 0;
-      font-weight: 700;
-      letter-spacing: 0.15em;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      text-shadow: 0 6px 20px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.9);
-      line-height: 1.1;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.9), 0 4px 12px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.7);
+      line-height: 1.15;
     }
 
     .hero-divider {
@@ -132,12 +136,13 @@
     }
 
     .nav-container {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 70px;
+      padding: 0 20px;
     }
 
     .brand {
@@ -175,11 +180,11 @@
     }
 
     section:nth-child(even) {
-      background: linear-gradient(to bottom, var(--bg) 0%, var(--bg-alt) 10%, var(--bg-alt) 90%, var(--bg) 100%);
+      background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #f9fafb 5%, #f9fafb 95%, rgba(255,255,255,0) 100%);
     }
 
     section:nth-child(odd):not(:first-child) {
-      background: linear-gradient(to bottom, var(--bg-alt) 0%, var(--bg) 10%, var(--bg) 90%, var(--bg-alt) 100%);
+      background: linear-gradient(to bottom, rgba(249,250,251,0.5) 0%, #ffffff 5%, #ffffff 95%, rgba(249,250,251,0.5) 100%);
     }
 
     .container {
@@ -441,8 +446,8 @@
     @media (max-width: 768px) {
       .hero h1 { 
         font-size: 2.5rem;
-        letter-spacing: 0.1em;
-        font-weight: 700;
+        letter-spacing: 0.06em;
+        font-weight: 600;
       }
       .hero p {
         font-size: 1.05rem;
@@ -511,19 +516,19 @@
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Overview</h2>
-          <p class="section-subtitle">A post-war cooperative in the heart of Manhattan</p>
+          <p class="section-subtitle">Your home in the heart of Chelsea/Hudson Yards</p>
         </div>
         
         <div class="overview-grid">
           <div class="overview-text">
             <p>
-              Nestled in the heart of the redefined Hudson Yards district, 408 West 34th Street, also known as Madison Gardens, offers a charming and amenity-rich post-war cooperative experience. Built in 1963 and converted to a cooperative in 1989, this six-story elevator building embodies a mid-century modern aesthetic.
+              Nestled in the heart of the redefined Hudson Yards district, 408 West 34th Street, also known as Madison Gardens, offers a charming post-war cooperative experience. Built in 1963 and converted to a cooperative in 1989, this six-story elevator building embodies a mid-century modern aesthetic.
             </p>
             <p>
               Madison Gardens boasts 68 residences, offering a comfortable range of studios, one-bedroom, and a few expansive two-bedroom apartments. High ceilings and large windows grace many units, creating a light and airy feel. While some original details might be present, most apartments offer a blend of classic features and modern updates, ensuring comfortable living spaces. Select units may feature private balconies or patios, extending the living space outdoors.
             </p>
             <p>
-              Beyond the residences, Madison Gardens provides amenities designed to enhance residents' lives. A live-in superintendent ensures the smooth operation of the building. Additional conveniences include a central laundry room, storage units, bike storage, and a surface parking lot behind the co-op (currently with a wait-list). The building is pet-friendly, and subletting is permitted per board policy.
+              Beyond the residences, Madison Gardens provides amenities designed to enhance residents' lives. A live-in superintendent ensures the smooth operation of the building. Additional conveniences include a central laundry room, storage units, bike storage, and a surface parking lot behind the co-op (currently with a waitlist). The building is pet-friendly, and subletting is permitted per board policy.
             </p>
           </div>
           
@@ -579,7 +584,7 @@
           <div class="feature-item">
             <span class="feature-icon">🚗</span>
             <span class="feature-title">On-Site Parking</span>
-            <span style="color: var(--text-light); font-size: 0.9rem;">Surface lot (wait-list)</span>
+            <span style="color: var(--text-light); font-size: 0.9rem;">Surface lot (waitlist)</span>
           </div>
           <div class="feature-item">
             <span class="feature-icon">📦</span>
