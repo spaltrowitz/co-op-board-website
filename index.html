@@ -378,8 +378,8 @@
       <div class="nav-links">
         <a class="nav-link active" onclick="scrollToSection('overview')">Overview</a>
         <a class="nav-link" onclick="scrollToSection('features')">Features</a>
-        <a class="nav-link" onclick="scrollToSection('gallery')">Gallery</a>
         <a class="nav-link" onclick="scrollToSection('residents')">Residents</a>
+        <a class="nav-link" onclick="scrollToSection('location')">Location</a>
         <a class="nav-link" onclick="scrollToSection('contact')">Contact</a>
       </div>
     </div>
@@ -487,29 +487,6 @@
       </div>
     </section>
 
-    <section id="gallery">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Gallery</h2>
-          <p class="section-subtitle">A glimpse into Madison Gardens</p>
-        </div>
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="https://placehold.co/600x400/e2e8f0/1e293b?text=Building+Exterior" alt="Building Exterior">
-          </div>
-          <div class="gallery-item">
-            <img src="https://placehold.co/600x400/e2e8f0/1e293b?text=Lobby" alt="Lobby">
-          </div>
-          <div class="gallery-item">
-            <img src="https://placehold.co/600x400/e2e8f0/1e293b?text=Courtyard" alt="Courtyard">
-          </div>
-          <div class="gallery-item">
-            <img src="https://placehold.co/600x400/e2e8f0/1e293b?text=Neighborhood" alt="Neighborhood">
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section id="residents">
       <div class="container">
         <div class="section-header">
@@ -591,10 +568,13 @@
   <script>
     function scrollToSection(id) {
       const element = document.getElementById(id);
-      const offset = 80; // Height of sticky nav + padding
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
+      if (!element) return;
+      
+      // Calculate offset based on screen size
+      const isMobile = window.innerWidth <= 768;
+      const offset = isMobile ? 130 : 80; // Larger offset for mobile due to fixed header and footer nav
+      
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - offset;
 
       window.scrollTo({
@@ -605,21 +585,23 @@
 
     // Active link highlighter
     window.addEventListener('scroll', () => {
-      const sections = ['overview', 'features', 'gallery', 'residents', 'contact'];
+      const sections = ['overview', 'features', 'residents', 'location', 'contact'];
       const navLinks = document.querySelectorAll('.nav-link');
       
       let current = '';
       sections.forEach(section => {
         const element = document.getElementById(section);
-        const sectionTop = element.offsetTop;
-        if (scrollY >= sectionTop - 150) {
-          current = section;
+        if (element) {
+          const sectionTop = element.offsetTop;
+          if (window.pageYOffset >= sectionTop - 150) {
+            current = section;
+          }
         }
       });
 
       navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('onclick').includes(current)) {
+        if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(current)) {
           link.classList.add('active');
         }
       });
