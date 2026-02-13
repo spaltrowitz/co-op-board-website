@@ -455,6 +455,14 @@
       display: block;
     }
 
+    /* Scores grid */
+    .scores-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+
     /* Contact */
     .contact-grid {
       display: grid;
@@ -618,6 +626,32 @@
       /* Score cards */
       .score-card:hover {
         transform: none;
+      }
+      .scores-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+      .score-card {
+        padding: 14px 8px !important;
+        border-radius: 10px !important;
+      }
+      .score-icon {
+        font-size: 1.3rem;
+        margin-bottom: 6px;
+      }
+      .score-card .score-number {
+        font-size: 1.8rem !important;
+      }
+      .score-card .score-label {
+        font-size: 0.7rem !important;
+        margin-bottom: 4px !important;
+      }
+      .score-card .score-out-of {
+        font-size: 0.6rem !important;
+      }
+      .score-card .score-desc {
+        font-size: 0.65rem !important;
+        margin-top: 6px !important;
       }
 
       /* Contact grid */
@@ -811,27 +845,27 @@
 
         <div style="margin-bottom: 40px;">
           <h3 style="text-align: center; margin-bottom: 20px; color: var(--primary);">Walk, Transit & Bike Scores</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
+          <div class="scores-grid">
             <div class="score-card walk-score" style="background: white; padding: 25px; border-radius: 12px; border: 2px solid var(--border);">
               <div class="score-icon">🚶</div>
-              <div style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 8px; font-weight: 500;">Walk Score®</div>
-              <div style="font-size: 3rem; font-weight: 700; color: #10b981; line-height: 1;">98</div>
-              <div style="font-size: 0.75rem; color: var(--text-light); margin-top: 2px;">/ 100</div>
-              <div style="font-size: 0.9rem; color: var(--primary); font-weight: 600; margin-top: 10px;">Walker's Paradise</div>
+              <div class="score-label" style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 8px; font-weight: 500;">Walk Score®</div>
+              <div class="score-number" style="font-size: 3rem; font-weight: 700; color: #10b981; line-height: 1;">98</div>
+              <div class="score-out-of" style="font-size: 0.75rem; color: var(--text-light); margin-top: 2px;">/ 100</div>
+              <div class="score-desc" style="font-size: 0.9rem; color: var(--primary); font-weight: 600; margin-top: 10px;">Walker's Paradise</div>
             </div>
             <div class="score-card transit-score" style="background: white; padding: 25px; border-radius: 12px; border: 2px solid var(--border);">
               <div class="score-icon">🚇</div>
-              <div style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 8px; font-weight: 500;">Transit Score®</div>
-              <div style="font-size: 3rem; font-weight: 700; color: #2563eb; line-height: 1;">100</div>
-              <div style="font-size: 0.75rem; color: var(--text-light); margin-top: 2px;">/ 100</div>
-              <div style="font-size: 0.9rem; color: var(--primary); font-weight: 600; margin-top: 10px;">Rider's Paradise</div>
+              <div class="score-label" style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 8px; font-weight: 500;">Transit Score®</div>
+              <div class="score-number" style="font-size: 3rem; font-weight: 700; color: #2563eb; line-height: 1;">100</div>
+              <div class="score-out-of" style="font-size: 0.75rem; color: var(--text-light); margin-top: 2px;">/ 100</div>
+              <div class="score-desc" style="font-size: 0.9rem; color: var(--primary); font-weight: 600; margin-top: 10px;">Rider's Paradise</div>
             </div>
             <div class="score-card bike-score" style="background: white; padding: 25px; border-radius: 12px; border: 2px solid var(--border);">
               <div class="score-icon">🚴</div>
-              <div style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 8px; font-weight: 500;">Bike Score®</div>
-              <div style="font-size: 3rem; font-weight: 700; color: #f59e0b; line-height: 1;">95</div>
-              <div style="font-size: 0.75rem; color: var(--text-light); margin-top: 2px;">/ 100</div>
-              <div style="font-size: 0.9rem; color: var(--primary); font-weight: 600; margin-top: 10px;">Biker's Paradise</div>
+              <div class="score-label" style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 8px; font-weight: 500;">Bike Score®</div>
+              <div class="score-number" style="font-size: 3rem; font-weight: 700; color: #f59e0b; line-height: 1;">95</div>
+              <div class="score-out-of" style="font-size: 0.75rem; color: var(--text-light); margin-top: 2px;">/ 100</div>
+              <div class="score-desc" style="font-size: 0.9rem; color: var(--primary); font-weight: 600; margin-top: 10px;">Biker's Paradise</div>
             </div>
           </div>
           <div style="text-align: center; margin-top: 15px;">
