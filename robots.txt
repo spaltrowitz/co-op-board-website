@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://madisongardens408.com/sitemap.xml
