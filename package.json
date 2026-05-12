@@ -4,7 +4,7 @@
   "description": "Hosting the html for co-op board website",
   "main": "index.js",
   "scripts": {
-    "build": "mkdir -p dist && cp *.html dist/ && cp -r images dist/ && cp robots.txt dist/ 2>/dev/null; cp sitemap.xml dist/ 2>/dev/null; cp _headers dist/ 2>/dev/null; true",
+    "build": "mkdir -p dist && cp *.html dist/ && cp -r images dist/ && cp -r .well-known dist/ 2>/dev/null; cp robots.txt dist/ 2>/dev/null; cp sitemap.xml dist/ 2>/dev/null; cp _headers dist/ 2>/dev/null; true",
     "postinstall": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
